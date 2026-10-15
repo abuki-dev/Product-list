@@ -53,3 +53,9 @@ src/
 ```
 
 `App.tsx` holds the cart and all the logic for adding, changing and removing items. The components just display what they receive.
+
+```
+### links 
+ deployment :https://vercel.com/shiera1/product-list/6VBHStrtKKrNHCKs39N77xWFXqS2
+
+ github :https://github.com/ahlamnuru/Product-list
