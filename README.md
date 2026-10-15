@@ -1,75 +1,55 @@
-# React + TypeScript + Vite
+# Product List with Cart
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A dessert shop web app where you can browse desserts, add them to a cart, change the quantities, and place an order. Built with React, TypeScript and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The app shows a grid of nine desserts, each with a photo, a category, a name and a price. You add what you like to the cart, and the cart updates right away with the quantities, the price of each line and the order total. When you're happy with your cart, you confirm the order and a popup shows a summary of everything you ordered. After that you can start a new order from scratch.
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Browse nine desserts with photos, categories and prices
+- Add a dessert to the cart with one click
+- Increase or decrease the quantity right on the dessert card
+- A dessert goes back to "Add to Cart" when its quantity reaches zero
+- Remove a dessert from the cart completely with the x button
+- The cart shows the number of items, the price of each line and the order total
+- An empty cart shows a picture and a message
+- "Confirm Order" opens a popup with a summary of the order
+- "Start New Order" clears the cart and closes the popup
+- Responsive layout for phones, tablets and desktops
+- Hover and focus states on all buttons
 
-## Expanding the ESLint configuration
+## Technologies
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React
+- TypeScript
+- Tailwind CSS
+- Vite
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## How to run it
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Make sure Node.js is installed, then open a terminal in the project folder and run:
 
 ```
+npm install
+npm run dev
+```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+Open the link it shows in your browser.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Project structure
 
 ```
+src/
+  assets/
+    components/   ProductCard, Cart, OrderModal, Icons
+    data/         App.tsx, products.ts, index.css
+    utils/        formatPrice.ts
+    images/
+    fonts/
+    types.ts
+  main.tsx
+```
+
+`App.tsx` holds the cart and all the logic for adding, changing and removing items. The components just display what they receive.
