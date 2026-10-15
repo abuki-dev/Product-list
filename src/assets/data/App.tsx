@@ -6,13 +6,10 @@ import { products } from "./products";
 import type { CartItem, CartLine } from "../types";
 
 function App() {
-  // the cart only remembers which product and how many of it
   const [cart, setCart] = useState<CartItem[]>([]);
 
-  // whether the "Order Confirmed" popup is showing
   const [orderConfirmed, setOrderConfirmed] = useState(false);
 
-  // first click on "Add to Cart": put the product in with quantity 1
   function handleAdd(id: number) {
     setCart((prev) => [...prev, { productId: id, quantity: 1 }]);
   }
@@ -25,7 +22,6 @@ function App() {
     );
   }
 
-  // lower the quantity by 1, and if it reaches 0 take it out of the cart
   function handleDecrease(id: number) {
     setCart((prev) =>
       prev
@@ -36,23 +32,19 @@ function App() {
     );
   }
 
-  // the little x in the cart: remove the whole product no matter the quantity
   function handleRemove(id: number) {
     setCart((prev) => prev.filter((item) => item.productId !== id));
   }
 
-  // "Start New Order": empty the cart and close the popup
   function handleStartNew() {
     setCart([]);
     setOrderConfirmed(false);
   }
 
-  // how many of one product are in the cart (0 if none)
   function getQuantity(id: number) {
     return cart.find((item) => item.productId === id)?.quantity ?? 0;
   }
 
-  // join each cart item with its full product info (name, price, pictures)
   const cartLines: CartLine[] = cart.flatMap((item) => {
     const product = products.find((p) => p.id === item.productId);
     return product ? [{ product, quantity: item.quantity }] : [];

@@ -11,7 +11,7 @@ type CartProps = {
 };
 
 function Cart({ lines, onRemove, onConfirm }: CartProps) {
-  // add up how many items, and the total price
+
   const itemCount = lines.reduce((sum, line) => sum + line.quantity, 0);
   const orderTotal = lines.reduce((sum, line) => sum + line.quantity * line.product.price, 0);
 

@@ -5,7 +5,7 @@ import iconAddToCart from "../images/icon-add-to-cart.svg";
 
 type ProductCardProps = {
   product: Product;
-  quantity: number; // 0 means it's not in the cart yet
+  quantity: number; 
   onAdd: (id: number) => void;
   onIncrease: (id: number) => void;
   onDecrease: (id: number) => void;
@@ -18,7 +18,7 @@ function ProductCard({ product, quantity, onAdd, onIncrease, onDecrease }: Produ
   return (
     <li>
       <div className="relative">
-        {/* the browser picks the right picture size for the screen */}
+        
         <picture>
           <source media="(min-width: 1024px)" srcSet={images.desktop} />
           <source media="(min-width: 640px)" srcSet={images.tablet} />

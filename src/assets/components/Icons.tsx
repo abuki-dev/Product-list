@@ -1,6 +1,3 @@
-// small icons drawn directly in the code (instead of image files)
-// so they can change color on hover using "currentColor"
-
 export function MinusIcon() {
   return (
     <svg width="10" height="2" viewBox="0 0 10 2" fill="currentColor" aria-hidden="true">

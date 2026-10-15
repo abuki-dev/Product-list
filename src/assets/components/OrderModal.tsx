@@ -11,8 +11,7 @@ function OrderModal({ lines, onStartNew }: OrderModalProps) {
   const orderTotal = lines.reduce((sum, line) => sum + line.quantity * line.product.price, 0);
 
   return (
-    // the dark background covers the whole page, the white card sits on top of it
-    // (on phones it slides up from the bottom, on bigger screens it's centered)
+ 
     <div
       role="dialog"
       aria-modal="true"

@@ -1,7 +1,5 @@
 import type { Product } from "../types";
 
-// all 4 image sizes follow the same file name pattern,
-// so this builds them from just the short name (like "waffle")
 function imageSet(name: string): Product["images"] {
   const url = (size: string) =>
     new URL(`../images/image-${name}-${size}.jpg`, import.meta.url).href;
@@ -14,7 +12,6 @@ function imageSet(name: string): Product["images"] {
   };
 }
 
-// same content as data.json, with ids added
 export const products: Product[] = [
   { id: 1, name: "Waffle with Berries", category: "Waffle", price: 6.5, images: imageSet("waffle") },
   { id: 2, name: "Vanilla Bean Crème Brûlée", category: "Crème Brûlée", price: 7, images: imageSet("creme-brulee") },
